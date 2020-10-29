@@ -1,0 +1,60 @@
+<!--pages/message/message.wxml-->
+<view class="title">  
+  <view class="middle-block">消息</view>
+</view>
+
+<view class="toplabel">
+
+  <view catchtap="findsystem">
+    <image src="message.png" style="height:100rpx;width:100rpx"></image>
+    <view>系统消息</view>
+  </view>
+  <view catchtap="findGuan">
+    <image src="attention.png" style="height:100rpx;width:100rpx"></image>
+       <view>关注</view>
+  </view>
+  <view catchtap="findFen">
+    <image src="fan.png" style="height:100rpx;width:100rpx"></image>
+       <view>粉丝</view>
+  </view>
+    
+</view>
+
+<view class="box">
+  <view class="meteor"></view>
+  <view class="meteor"></view>
+  <view class="meteor"></view>
+  <view class="meteor"></view>
+  <view class="meteor"></view>
+  <view class="meteor"></view>
+</view>
+
+
+
+<view class="messageview"> 
+<!-- 系统消息 -->
+  <view class="message" wx:for="{{message}}" wx:if="{{xtactive}}">
+     <image src="{{item.headimg}}" style= "height:80rpx;width:80rpx;border-radius:50%; margin-right: 20rpx;"></image>
+     {{item.nickname}} {{item.messagetype}} 了我
+     <view style="position:absolute;right: 30rpx;font-size:25rpx;color:orange;">系统消息</view>
+  </view>
+  <!-- 关注的人 -->
+  <view class="othermessage" wx:for="{{guanzhu}}" wx:if="{{fgactive}}">
+     <image src="http://123.57.81.190/uploads/{{item.head_img}}" style= "height:80rpx;width:80rpx;border-radius:50%; margin-right: 20rpx;"></image>
+     {{item.nickname}}
+     
+  </view>
+  <!-- 你的粉丝 -->
+  <view class="othermessage" wx:for="{{xihuan}}" wx:if="{{ffactive}}">
+     <image src="http://123.57.81.190/uploads/{{item.head_img}}" style= "height:80rpx;width:80rpx;border-radius:50%; margin-right: 20rpx;"></image>
+     {{item.nickname}}
+     
+  </view>
+</view>
+<!-- <view class="messagetype">
+      <text>{{item.nickname}} {{item.messagetype}} 你的旅行日志</text> -->
+      <!-- <view class="contain" wx:if="{{item.messagetype=='赞'||item.messagetype=='评论了'}}" data-id="{{item.id}}" bindtap="particulars"> -->
+        <!-- <image src="../main/1.jpg{{item.Image}}" mode="aspectFit" style="height:150rpx;width:150rpx; margin: 10rpx;"></image>
+        <view style="width:70%; margin-top:15rpx;font-size:30rpx">你的旅行日志 你的旅行日志 你的旅行日志 你的旅行日志 你的旅行日志 你的旅行日志{{describe}}</view> -->
+      <!-- </view> -->
+    <!-- </view> -->

@@ -1,0 +1,292 @@
+/* pages/personcenter/person.wxss */
+.background{
+  width: 100%;
+  height: 40vh;
+  position:absolute; 
+  background-size:100% 100%;
+}
+.person{
+  width: 100vw;
+  height: 38vh;
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
+  position: relative;
+}
+.personimage{
+ float: initial;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.title{
+  height: 60rpx;
+  padding-top: 60rpx;
+  color: #fff;
+}
+.headimg{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius:50%;
+}
+.personbottom{
+  position: absolute;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  width: 100%;
+  bottom: 10rpx;
+}
+.bianji{
+  position: absolute;
+  right: 0;
+  margin-right:50rpx ;
+}
+.usermessage{
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  line-height: 50px;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  animation: water-wave linear infinite;
+}
+.uesrmessage-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  flex-wrap: nowrap;
+  height: 100rpx;
+  color: rgb(150, 150, 150);
+  position: absolute;
+  animation: inherit;
+  animation-duration: 5s;
+}
+/* @keyframes  water-wave{
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+} */
+.uesrmessage-container view{
+  width: 30%;
+  text-align: center;
+}
+
+/* 选项卡 */
+.imgtabbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imgtabbar view{
+  width: 100vw;
+  text-align: center;
+  height: 6vh;
+  margin-left:2rpx;
+  margin-right:2rpx;
+}
+.imgtabbar-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid rgb(199, 199, 198);
+}
+.textcolor{
+  color: rgb(118, 118, 118);
+}
+.tabbar{
+  color: rgb(247, 184, 125);
+  border-bottom: 3px solid rgb(247, 184, 125);
+}
+.imgtabbar view text{
+  width: 35vw;
+  height: 35vw;
+  margin:25rpx;
+  box-shadow:  rgb(191, 190, 190);
+}
+/* 用户展示图 */
+.userview{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userimg{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.user{
+  width: 38vw;
+  height: 42vh;
+  margin-top: 1vh;
+  margin-left: 3vh;
+  margin-right: 3vh;
+}
+.user >image{
+  width: 38vw;
+  height: 30vh;
+}
+.head-portrait{
+  width: 60rpx;
+  height: 60rpx;
+  margin-top:1vh ;
+  border-radius:50% ;
+}
+.usertext{
+  border-bottom: 1px solid rgb(112, 174, 232);
+  border-radius: 10%;
+}
+.user-message{
+  position: relative;
+}
+.xiai{
+  position: absolute;
+  right: 0;
+  color: rgb(190, 187, 187);
+  font-size:20rpx;
+}
+.head-portrait{
+  width: 60rpx;
+  height: 60rpx;
+  margin: 1vh;
+  border-radius:50% ;
+}
+/* 背景 */
+.bubble-home {
+  width: 150px;
+  height: 50px;
+  background: orange;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  border-radius: 100px 100px 0 0;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+
+.bubble {
+  background: orange;
+  position: absolute;
+  bottom: 0;
+  border-radius: 100px 100px 0 0;
+  filter: blur(5px);
+  animation: moveUp ease-in-out infinite;
+  z-index: -1;
+}
+
+.bubble:nth-child(1) {
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(2) {
+  width: 12px;
+  height: 12px;
+  left: 54%;
+  animation-duration: 4.2s;
+  animation-delay: 4s;
+}
+
+.bubble:nth-child(3) {
+  width: 14px;
+  height: 14px;
+  left: 45%;
+  animation-duration: 3s;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(4) {
+  width: 10px;
+  height: 12px;
+  left: 54%;
+  animation-duration: 5s;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(5) {
+  width: 12px;
+  height: 12px;
+  left: 52%;
+  animation-duration: 3.5s;
+  animation-delay: 5s;
+}
+
+.bubble:nth-child(6) {
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  animation-duration: 4.7s;
+  animation-delay: 1.2s;
+}
+.bubble:nth-child(7) {
+  width: 12px;
+  height: 12px;
+  left: 54%;
+  animation-duration: 2.5s;
+  animation-delay: 3.5s;
+}
+
+.bubble:nth-child(8) {
+  width: 14px;
+  height: 14px;
+  left: 51%;
+  animation-duration: 5.6s;
+  animation-delay: 4.2s;
+}
+
+.bubble:nth-child(9) {
+  width: 16px;
+  height: 16px;
+  left: 42%;
+  animation-duration: 5.2s;
+  animation-delay: 4s;
+}
+
+.bubble:nth-child(10) {
+  width: 16px;
+  height: 12px;
+  left: 54%;
+  animation-duration: 3.8s;
+  animation-delay: 4.3s;
+}
+
+.bubble:nth-child(11) {
+  width: 12px;
+  height: 12px;
+  left: 42%;
+  animation-duration: 4.2s;
+  animation-delay: 0.3s;
+}
+
+.bubble:nth-child(12) {
+  width: 14px;
+  height: 14px;
+  left: 46%;
+  animation-duration: 4.6s;
+  animation-delay: 2.0s;
+}
+
+
+@keyframes moveUp {
+  0% {
+      bottom: 0;
+  }
+
+  100% {
+      bottom: calc(100% - 265px);
+  }
+}

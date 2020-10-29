@@ -1,0 +1,222 @@
+<!--pages/top/top.wxml-->
+<!-- 头部 -->
+<view class="title">  
+  <text class="iconfont icon-option2"></text>
+  <view class="middle-block">主页面</view>
+  <text class="iconfont icon-icon-"></text>
+</view>
+
+<view class='container'>
+  <view class='orderlength' >
+    <view class='protab swiper-tab'>
+
+      <view class="swiper-tab-item {{currentTab==0 ? 'active' : ''}}" data-current="0" data-type="海边" bindtap="swichNav">海边</view>
+
+      <view class="swiper-tab-item {{currentTab==1 ? 'active' : ''}}" data-current="1" data-type="陆地" bindtap="swichNav">陆地</view>
+
+      <view class="swiper-tab-item {{currentTab==2 ? 'active' : ''}}" data-current="2" data-type="城市" bindtap="swichNav">城市</view>
+
+      <view class="swiper-tab-item {{currentTab==3 ? 'active' : ''}}" data-current="3" data-type="高山"  bindtap="swichNav">高山</view>
+
+    </view>
+    <view class='order-itembox'>
+      <swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height: {{clientHeight?clientHeight+'px':'auto'}}" >
+
+        <swiper-item>
+          <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+            <view class='order-item' wx:for="{{order}}" wx:for-item="item" wx:key="index" > 
+
+              <view class="content" wx:for="{{item.sea}}">
+                  <!-- 详情页打开 -->
+                <view bindtap="particulars" data-workid='{{item.id}}' data-uid='{{item.uid}}' data-spot='{{item.spot}}'>
+                  <image src="http://123.57.81.190/travel/uploads/{{item.cover}}"></image>
+
+                  <view class="logo-margin">
+                    <text>{{item.describes}}</text>
+                  </view>
+
+
+                  <view class="text-margin">
+                    <view>
+                      <image class="head-portrait" src="http://123.57.81.190/travel/uploads/{{item.user.head_img}}"></image>
+                      <!-- 字符拼接点 -->
+                      <text class="nickname">{{item.user.nickname}}</text>
+                    </view> 
+
+                    <view>
+
+                      <text class="iconfont icon-yanjing-zheng {{item.attentionstates==true ? 'yanjingcolor' : ''}}" catchtap="guanzhu" data-wid='{{item.id}}' data-uid='{{item.user.id}}' data-workid='{{item.wid}}' data-attentionstates='{{item.attentionstates}}' data-openid="{{item.user.weChat}}" data-type='海边' style=" font-size: x-large;">
+                      <text class="tip">+</text>
+                      </text>
+
+                      <text class=" iconfont icon-zan {{item.spot==true ? 'dianzancolor' : ''}}" catchtap="dianzan" data-wid='{{item.id}}' data-uid='{{item.user.id}}'  data-fabulous='{{item.fabulous}}' data-workid='{{item.wid}}' data-spot='{{item.spot}}' data-openid="{{item.user.weChat}}" data-type='海边' style="font-size: x-large;" > <text class="tip">{{item.fabulous}}</text>
+                      </text>
+      
+                    </view>
+                  </view>
+                  
+                </view>
+
+              </view>
+             
+            </view> 
+          </scroll-view>
+        </swiper-item>
+<!-- 第一个完 -->
+      
+        <swiper-item>
+          <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+            <view class='order-item' wx:for="{{order}}" wx:for-item="item" wx:key="index" > 
+
+              <view class="content" wx:for="{{item.area}}">
+                  <!-- 详情页打开 -->
+                <view bindtap="particulars" data-workid='{{item.id}}' data-uid='{{item.uid}}' data-spot='{{item.spot}}'>
+                  <image src="http://123.57.81.190/travel/uploads/{{item.cover}}"></image>
+
+                  <view class="logo-margin">
+                    <text>{{item.describes}}</text>
+                  </view>
+
+
+                  <view class="text-margin">
+                    <view>
+                      <image class="head-portrait" src="http://123.57.81.190/travel/uploads/{{item.user.head_img}}"></image>
+                      <text class="nickname">{{item.user.nickname}}</text>
+                    </view> 
+
+                    <view>
+
+                     <text class="iconfont icon-yanjing-zheng {{item.attentionstates==true ? 'yanjingcolor' : ''}}" catchtap="guanzhu" data-wid='{{item.id}}' data-uid='{{item.user.id}}' data-attentionstates='{{item.attentionstates}}' data-workid='{{item.wid}}'  data-openid="{{item.user.weChat}}" data-type='陆地' style=" font-size: x-large;">
+                      <text class="tip">+</text>
+                      </text>
+
+                      <text class=" iconfont icon-zan {{item.spot==true ? 'dianzancolor' : ''}}" catchtap="dianzan" data-wid='{{item.id}}' data-uid='{{item.user.id}}'  data-fabulous='{{item.fabulous}}' data-spot='{{item.spot}}' data-workid='{{item.wid}}' data-openid="{{item.user.weChat}}" data-type='陆地' style="font-size: x-large;"> <text class="tip">{{item.fabulous}}</text>
+                      </text>
+
+                    </view>
+                  </view>
+                  
+                </view>
+
+              </view>
+             
+            </view> 
+          </scroll-view>
+        </swiper-item>
+<!-- 第二个完 -->
+        
+        <swiper-item>
+          <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+            <view class='order-item' wx:for="{{order}}" wx:for-item="item" wx:key="index" > 
+
+              <view class="content" wx:for="{{item.city}}">
+                  <!-- 详情页打开 -->
+                <view bindtap="particulars" data-workid='{{item.id}}' data-uid='{{item.uid}}' data-spot='{{item.spot}}'>
+                  <image src="http://123.57.81.190/travel/uploads/{{item.cover}}"></image>
+
+                  <view class="logo-margin">
+                    <text>{{item.describes}}</text>
+                  </view>
+
+
+                  <view class="text-margin">
+                    <view>
+                      <image class="head-portrait" src="http://123.57.81.190/travel/uploads/{{item.user.head_img}}"></image>
+                      <text class="nickname">{{item.user.nickname}}</text>
+                    </view> 
+
+                    <view>
+
+                      <text class="iconfont icon-yanjing-zheng {{item.attentionstates==true ? 'yanjingcolor' : ''}}" catchtap="guanzhu" data-wid='{{item.id}}' data-uid='{{item.user.id}}' data-attentionstates='{{item.attentionstates}}' data-workid='{{item.wid}}'  data-openid="{{item.user.weChat}}" data-type='城市' style=" font-size: x-large;">
+                      <text class="tip">+</text>
+                      </text>
+
+                      <text class=" iconfont icon-zan {{item.spot==true ? 'dianzancolor' : ''}}" catchtap="dianzan" data-wid='{{item.id}}' data-uid='{{item.user.id}}'  data-fabulous='{{item.fabulous}}' data-spot='{{item.spot}}' data-workid='{{item.wid}}' data-openid="{{item.user.weChat}}" data-type='城市' style="font-size: x-large;"> <text class="tip">{{item.fabulous}}</text>
+                      </text>
+
+                    </view>
+                  </view>
+                  
+                </view>
+
+              </view>
+             
+            </view> 
+          </scroll-view>
+        </swiper-item>
+
+<!-- 第三个完 -->
+      
+        <swiper-item>
+          <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+            <view class='order-item' wx:for="{{order}}" wx:for-item="item" wx:key="index" > 
+
+              <view class="content" wx:for="{{item.mountain}}">
+                  <!-- 详情页打开 -->
+                <view bindtap="particulars" data-workid='{{item.id}}' data-uid='{{item.uid}}' data-spot='{{item.spot}}'>
+                  <image src="http://123.57.81.190/travel/uploads/{{item.cover}}"></image>
+
+                  <view class="logo-margin">
+                    <text>{{item.describes}}</text>
+                  </view>
+
+
+                  <view class="text-margin">
+                    <view>
+                      <image class="head-portrait" src="http://123.57.81.190/travel/uploads/{{item.user.head_img}}"></image>
+                      <text class="nickname">{{item.user.nickname}}</text>
+                    </view> 
+
+                    <view>
+
+                      <text class="iconfont icon-yanjing-zheng {{item.attentionstates==true ? 'yanjingcolor' : ''}}" catchtap="guanzhu" data-wid='{{item.id}}' data-uid='{{item.user.id}}' data-attentionstates='{{item.attentionstates}}' data-workid='{{item.wid}}'  data-openid="{{item.user.weChat}}" data-type='高山' style=" font-size: x-large;">
+                      <text class="tip">+</text>
+                      </text>
+
+                      <text class=" iconfont icon-zan {{item.spot==true ? 'dianzancolor' : ''}}" catchtap="dianzan" data-wid='{{item.id}}' data-uid='{{item.user.id}}'  data-fabulous='{{item.fabulous}}' data-spot='{{item.spot}}' data-workid='{{item.wid}}'  data-openid="{{item.user.weChat}}" data-type='高山' style="font-size: x-large;"> <text class="tip">{{item.fabulous}}</text>
+                      </text>
+
+                    </view>
+                  </view>
+                  
+                </view>
+
+              </view>
+             
+            </view> 
+          </scroll-view>
+        </swiper-item>
+
+<!-- 第四个完 -->
+      </swiper>
+      </view>
+    </view>
+</view>
+
+<!-- 页面信息-->
+<!-- 注意这里的active确定点击的分区 存储在data的中的对应的四个对象分别对应四个分区 -->
+<!-- 选项框 -->
+<!-- <view class="options">
+  
+  <view class="optionsbg">
+  <image src="../index/background.jpg"></image>
+
+  <view class="headposition">
+
+    <view class="optionhead">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    
+    <view></view>
+      <open-data type="userNickName" class="optionnickname"></open-data>
+    </view>
+
+  </view>
+
+  <view class="option">
+    <view>个人中心</view>
+    <view>消息</view>
+    <view>收藏</view>
+  </view>
+</view> -->
+

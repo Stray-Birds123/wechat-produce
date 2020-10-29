@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/main/main",
+    "pages/message/message",
+    "pages/Ranking/Ranking",
+    "pages/personcenter/person",
+    
+    "pages/compile/compile",
+    "pages/particulars/particulars",
+    "pages/publish/publish"
+
+  ],
+  "tabBar": {
+    "selectedColor": "#f5b237",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "iconPath": "/image/zhuye.png",
+        "selectedIconPath": "/image/zhuye1.png",
+        "text": "世界"
+      },
+      {
+        "pagePath": "pages/Ranking/Ranking",
+        "iconPath": "/image/paixing.png",
+        "selectedIconPath": "/image/paixing1.png",
+        "text": "热门"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "iconPath": "/image/xiangji.png",
+        "selectedIconPath": "/image/xiangji1.png",
+        "text": "拍照"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "iconPath": "/image/feiji.png",
+        "selectedIconPath": "/image/feiji1.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/personcenter/person",
+        "iconPath": "/image/geren.png",
+        "selectedIconPath": "/image/geren1.png",
+        "text": "个人"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

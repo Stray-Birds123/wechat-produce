@@ -1,0 +1,67 @@
+<!--pages/compile/compile.wxml-->
+<view class="background" style="width:100%;height:100%">
+  <view>
+    <view style="height:50vh;width:100%" class="position">
+      <image src="1.png" style="width:300rpx;height:300rpx" class="img1-position"></image>
+    </view>
+    <view style="height:50vh;width:100%">
+      <image src="2.png" style="width:300rpx;height:300rpx" class="img2-position"></image>
+    </view>
+  </view>
+</view>
+<view class="title">  
+  <text class="back" bindtap="back">返回</text>
+  <view class="middle-block">编辑</view>
+  <view class="yincang">返回</view>
+</view>
+
+<form catchsubmit="formSubmit">
+<view>
+  <textarea placeholder="写下你的个人语录吧" auto-focus maxlength="14" style="width:100%;height:10vh" bindblur="getdescribes" value="{{describes}}"/>
+</view>
+
+<view  class="choose">
+  <view class="section">
+    <picker bindchange="bindPickerChange" value="{{genderindex}}" range="{{genderground}}">
+      <view class="picker"  style="font-size：60rpx" style="width: 80vw;height: 6vh；border-bottom:1px solid rgb(164, 164, 165) ;">
+        性别：{{genderground[genderindex]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <picker bindchange="bindconstellation" value="{{constellationindex}}" range="{{constellationground}}">
+      <view class="picker"  style="font-size：60rpx" style="width: 80vw;height: 6vh；border-bottom:1px solid rgb(164, 164, 165) ;">
+        星座：{{constellationground[constellationindex]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <view>
+      <text>昵称：</text>
+    </view>
+    <view>
+      <input maxlength="10" placeholder="输入你的新昵称" bindblur="getnickname" value="{{nickname}}"/>
+    </view>
+  </view>
+
+  <view class="section">
+    <view>
+      <text>年龄：</text>
+    </view>
+    <view>
+      <input maxlength="2" type="number" placeholder="输入你的年龄"  bindblur="getage" value="{{age}}"/>
+    </view>
+  </view>  
+   
+</view>
+<view class="tip">最后一个填写年龄</view>
+
+
+<view class="submit">
+  <button class="btn" formType="submit" style="width: 80vw;">
+    完成
+  </button>
+</view>
+</form>

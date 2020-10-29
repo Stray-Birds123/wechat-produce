@@ -1,0 +1,32 @@
+<!--pages/Ranking/Ranking.wxml-->
+<view class="title">  
+  <view class="middle-block">排行</view>
+</view>
+
+
+<view class="Ranks" wx:for="{{pursue}}">
+
+  <view class="text">
+
+    <view class="item">
+    {{index+1}}
+    </view>
+
+    <view class="Rankimg">
+     <image src="{{'http://123.57.81.190/travel/uploads/'+item.cover}}" mode="aspectFill" style="height:180rpx;width:240rpx;" bindtap="particulars"  data-id='{{item.id}}' data-uid='{{item.uid}}'></image>
+    </view>
+
+    <view class="describe">
+      <text>{{item.describes}}</text>
+      <view class="label iconfont icon-biaoqian" data-id="{{item.id}}" data-uid='{{item.uid}}' data-spot='{{item.spot}}'>
+        <text style="font-size:25rpx">{{item.type}}</text>
+      </view>
+      <!-- {{attentionstate==true ? 'yanjing-color' : ''}} -->
+      <view class="label iconfont icon-zan"  data-id="{{item.id}}" data-uid='{{item.uid}}' data-spot='{{item.spot}}'>
+        <text style="font-size:25rpx">{{item.fabulous}}</text>
+      </view>
+    </view>
+
+   </view>
+
+</view>

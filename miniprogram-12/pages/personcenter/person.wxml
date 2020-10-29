@@ -1,0 +1,119 @@
+<!--pages/personcenter/person.wxml-->
+<form>
+<view class="person">
+  <view class="title">个人中心</view>
+  <view class="background">
+  <image class="background" src="{{bg}}" mode="aspectFill"  catchtap="chooseImg"></image>
+  </view>
+  <view class="personbottom" >
+    <button open-type="getUserInfo" form-type="submit" style="width: 100rpx;height: 100rpx;margin: 1vh;border-radius:50%; padding:0;" bindgetuserinfo="login">
+    <image class="headimg" src="{{status==0 ? 'nohead.png':pingjietouxiang}}" ></image>
+    </button>
+    <view>
+      <view><text style="color:#fff;font-size:45rpx">{{status==0 ? '未登录':user.nickname}}</text></view>
+      <view><text style="color:rgb(215, 215, 215);font-size:25rpx">{{status==0 ? '点击登录或注册':user.describes}}</text></view>
+    </view>
+ 
+    <view class="bianji" bindtap="compile"><text class="iconfont icon-bianji" style="color:#fff ;font-size:50rpx;"></text></view>
+    
+  </view>
+  
+</view>
+
+<view class="usermessage">
+  <view class="uesrmessage-container">
+      
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+      <span class="bubble"></span>
+
+      <view class="bubble-home"></view>
+      
+      <view style="width：30vw">年龄：{{user.age}}</view> 
+      <view style="width：30vw;color:rgb(220,220,220)">星座：{{user.constellation}}</view> 
+      <view style="width：30vw">性别：{{user.gender}}</view>
+
+    </view>
+</view> 
+
+<view class="imgtabbar">
+  <view class="imgtabbar-box">
+    <view class="textcolor {{active==0 ? 'tabbar' : ''}}" data-active='0' bindtap="changetabbar">
+      <text>时间线</text>
+    </view>
+    <view class="textcolor {{active==1 ? 'tabbar' : ''}}" data-active='1' bindtap="changetabbar">
+      <text> 喜欢</text>
+    </view>
+  </view>
+</view>
+
+<view class="swiperstyle">
+    <swiper duration="500" current="{{active}}" circular="true" class="swiperview" style="height: {{clientHeight?clientHeight+'px':'auto'}}" bindchange="change" data-current="{{current}}">
+     
+      <swiper-item>
+       <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+        <view class="userview">
+            <view class="userimg" bindtap="particulars">
+              <view class="user" wx:for="{{user.imgsrc}}" mode='aspectFit'> 
+                <image src="http://123.57.81.190/travel/uploads/{{item.cover}}" data-id="{{item.id}}" data-uid="{{item.uid}}" data-spot='{{item.spot}}'></image>
+                <view class="usertext">
+                  <text>{{item.describes}}</text>
+                </view>
+                <view class="user-message">
+                <!--  用户昵称头和像-->
+                <text class="xiai"> 
+                  {{item.add_time}}
+                </text>
+                </view>
+              </view>
+
+            </view>
+        </view>
+       
+         </scroll-view>
+      </swiper-item>
+
+   
+      <swiper-item>
+        <scroll-view scroll-y="{{true}}" style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+           <view class="userview">
+            <view class="userimg" bindtap="particulars">
+
+              <view class="user" wx:for="{{userlike}}" mode='aspectFit'> 
+                <image src="http://123.57.81.190/travel/uploads/{{item.cover}}" data-id="{{item.id}}" data-uid="{{item.uid}}" data-spot='{{item.spot}}'></image>
+                <view class="usertext">
+                  <text>{{item.describes}}</text>
+                </view>
+                <view class="user-message">
+                <!--  用户昵称头和像-->
+                <text class="xiai"> 
+                  {{item.add_time}}
+                </text>
+                </view>
+              </view>
+
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+
+    </swiper>
+
+</view>
+</form>
+

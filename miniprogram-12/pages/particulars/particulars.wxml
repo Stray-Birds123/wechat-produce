@@ -1,0 +1,117 @@
+<!--pages/particulars/particulars.wxml-->
+
+<view class="title">  
+  <text class="back" bindtap="back">返回</text>
+  <view class="middle-block" style="font-size:30rpx; font-family: 思源黑体;">无尽旅程</view>
+  <view class="yincang">返回</view>
+</view>
+
+<view class="comment">
+    <view class="usermessage">
+    <view>
+       <image class="head-portrait" src="http://123.57.81.190/travel/uploads/{{works.user.head_img}}"></image>
+       <text class="nickname" style="color:#000000;text-align: center;"> {{works.user.nickname}}</text>
+    </view>
+       <text class="time">{{works.add_time}}</text>
+    </view>
+</view>
+
+  <view class="uesrtext">
+    <text style="color:#000000;line-height: 35rpx;">{{works.describes}}</text>
+  </view>
+
+<view class="imgview">
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" duration="{{duration}}" bindchange="bindchange"  circular="{{circular}}" style="height:{{imgheights[current]}}rpx;">
+    <block wx:for="{{works.imgs}}" wx:key="{{index}}">
+      <swiper-item >
+        <image src="http://123.57.81.190/travel/uploads/{{item}}" mode="aspectFit" bindload="imageLoad"       
+        class=".itemimage" style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;"/>
+        <!-- http://123.57.81.190/travel/uploads/{{item}} -->
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class="middle">
+  <view class="usermessage">
+    
+    <view style="margin-right:35rpx;">
+      <text style="font-size:30rpx;">发布于</text>
+      <text style="color:orange;font-size:35rpx;"> {{works.place}} </text>
+    </view>
+  </view> 
+
+  <view class="xiaoxi">
+    <view>
+      <text class="iconfont icon-zan {{spot==true ? 'zan-color' : 'nozan'}}" catchtap="dianzan" data-id='{{id}}'  data-spot='{{spot}}' data-openid='{{works.uset.weChat}}' style="margin:25rpx ;">
+          <text class="tip">{{works.fabulous}}</text>
+        </text>
+
+        <text class="iconfont icon-ai-message" style="margin:25rpx ;" bindtap="showInputBox"> 
+          <text class="tip">{{allComments.length}}</text>
+        </text>
+      </view>
+    <text class="pubishtime" style="font-size:25rpx">{{works.user.add_time}}</text>
+  </view>
+
+<!-- <view> -->
+      <!-- <image class="head-portrait" src="http://123.57.81.190/travel/uploads/{{resdata.user.head_img}}"></image> -->
+      <!-- <text class="nickname" style="color:#000000; font-size:35rpx;"> {{resdata.user.nickname}}</text> -->
+    <!-- </view> -->
+
+</view>
+
+<view class="commentview">
+  <view class="Text" wx:for="{{allComments}}"   data-weChat='{{item.uidWeChat}}'>
+      <view class="talk" catchtap="showreplay" data-cid='{{item.cid}}' data-uid='{{collection.uid}}' data-weChat='{{item.uidWeChat}}'>
+        <text style="color:rgb(120,120,120);font-size:25rpx;"><text style="color:rgb(118, 185, 240);font-size:25rpx;">{{item.uidName}}</text>:{{item.c_content}}</text>
+
+        <text style="font-size:25rpx; margin: 10rpx;" class='buttonreply' >{{item.c_time}}</text>
+
+      </view>  
+    <!-- 回复 -->
+
+      <view class="talk" wx:for="{{item.replies}}">
+       <text style="font-size:25rpx;">{{item.uidName}}<text style="font-size:25rpx;color:orange;">回复</text>{{item.rep_uidName}}：{{item.r_content}}</text>
+       <text style="font-size:25rpx; margin: 10rpx;" class='buttonreply' >{{item.r_time}}</text>
+      </view>  
+
+
+  </view>
+
+  <!-- <view class="soncomment">
+    <text class="iconfont icon-ai-message" style="font-size:20rpx"></text>
+  </view> -->
+
+</view>
+<!-- 评论弹出框 -->
+<scroll-view scroll-y="{{isScroll}}">
+
+<view class='model' wx:if="{{inputBoxShow}}">
+<!-- invisible_model view 用于点击隐藏model评论框 -->
+<view class='invisible_model' catchtap='invisible'></view>
+<form bindsubmit='bindFormsubmit'>  
+  <view class='input-box'>
+  <textarea class="textarea" placeholder=" 评论:" cursor-spacing="{{65}}" show-confirm-bar="{{false}}" adjust-position="{{true}}" auto-focus="{{true}}" bindblur='bindTextAreaBlur' value='{{textarea}}' name="textarea"/>
+  <button class='send' style="height:80rpx;width:200rpx"  form-type='submit'>发送</button>
+  </view>
+</form>
+</view>
+
+</scroll-view>
+<!-- 回复评论框 -->
+<!-- 评论弹出框 -->
+<scroll-view scroll-y="{{replyScroll}}">
+
+<view class='model' wx:if="{{replyBoxShow}}">
+<!-- invisible_model view 用于点击隐藏model评论框 -->
+<view class='invisible_model' catchtap='invisiblereplay'></view>
+<form bindsubmit='replysubmit'>  
+  <view class='input-box'>
+  <textarea class="textarea" placeholder=" 回复:" cursor-spacing="{{65}}" show-confirm-bar="{{false}}" adjust-position="{{true}}" auto-focus="{{true}}" bindblur='bindTextAreaBlur' value='{{textarea}}' name="textarea"/>
+  <button class='send' style="height:80rpx;width:200rpx"  form-type='submit'>发送</button>
+  </view>
+</form>
+</view>
+
+</scroll-view>
